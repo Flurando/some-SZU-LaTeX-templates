@@ -59,27 +59,18 @@
 		{\textbf{\phyExpName}};
 		\node[above] at (8.5,-10.0)
 		{\textbf{（你的学院）}};
-		\node[above] at (11,-12.1)
+		\node[above] at (8.5,-12.1)
 		{\textbf{\phyExpTchr}};
 		\node[above] at (5.75,-14.2)
 		{\textbf{\phyAuthor}};
 		\node[above] at (11,-14.2)
-		{\textbf{\phyStuID}};
-		\node[above] at (4.87,-12.1)
 		{\textbf{\phyNum}};
 		\node[above] at (5.75,-16.3)
-		{\textbf{致原楼}};
+		{\textbf{\phyStuID}};
+                \node[above] at (11,-16.3)
+                {\textbf{致原楼}};
 
-		\node[above] at (6.2,-18.2)
-		{\textbf{ }};
-		\node[above] at (9.25,-18.2)
-		{\textbf{ }};
-		\node[above] at (11.3,-18.2)
-		{\textbf{ }};
-		\node[above] at (6.2,-20.25)
-		{\textbf{ }};
-
-		\node[above, font=\fontsize{22.5}{20}\selectfont] at (7.13,-3.33)
+		\node[above, font=\fontsize{22}{18}\selectfont] at (7.13,-3.33)
 		{\textbf{深　圳　大　学　实　验　报　告}};
 		\node[right] at (1.8,-5.6)
 		{\textbf{课程名称：}\rule[-5pt]{8.7cm}{1pt}};
@@ -88,18 +79,20 @@
 		\node[right] at (1.8,-9.8)
 		{\textbf{学　　院：}\rule[-5pt]{8.7cm}{1pt}};
 		\node[right] at (1.8,-11.9)
-		{\textbf{组号：}\rule[-5pt]{3.72cm}{1pt}\textbf{指导教师：}\rule[-5pt]{8.7cm}{1pt}};
-		\node[right] at (1.8,-14.0)
-		{\textbf{报告人：}\rule[-5pt]{4cm}{1pt}\textbf{学号：}\rule[-5pt]{4.4cm}{1pt}};
+		{\textbf{指导教师：}\rule[-5pt]{8.7cm}{1pt}};
+                \node[right] at (1.8,-14.0)
+                {\textbf{报告人：}\rule[-5pt]{4cm}{1pt}\textbf{组号：}\rule[-5pt]{3.72cm}{1pt}};
 		\node[right] at (1.8,-16.1)
-		{\textbf{实验地点：}\rule[-5pt]{3.7cm}{1pt}\textbf{实验时间：}\rule[-5pt]{4.6cm}{1pt}};
+		{\textbf{学号：}\rule[-5pt]{4.4cm}{1pt}\textbf{实验地点：}\rule[-5pt]{3.7cm}{1pt}};
 		\node[right] at (1.8,-18.2)
-		{\textbf{实验报告提交时间：}\rule[-5pt]{10.6cm}{1pt}};
+		{\textbf{实验时间：\rule[-5pt]{1.8cm}{1pt}年\rule[-5pt]{0.9cm}{1pt}月\rule[-5pt]{0.9cm}{1pt}日}};
+		\node[right] at (1.8,-20.3)
+		{\textbf{提交时间：\rule[-5pt]{1.8cm}{1pt}年\rule[-5pt]{0.9cm}{1pt}月\rule[-5pt]{0.9cm}{1pt}日}};
 
 		\node[right, font=\fontsize{10.95}{10.95}\selectfont] at (0.48,0.5)
 		{课程编号\underline{　　\phyID　　}};
 		\node[right, font=\fontsize{10.95}{10.95}\selectfont] at (0.48,-0.1)
-		{实验类型\underline{　　\phyExpType　　　　　　}};
+		{实验类型\underline{　　\phyExpType　　}};
 
 		\draw (8.45,1.2) rectangle (14.75,-0.8);
 		\draw (8.45,0.6) -- (14.75,0.6);
@@ -112,7 +105,7 @@
 		\node[above, font=\fontsize{10.95}{10.95}\selectfont] at (13.625,0.7)
 		{\textbf{批改日期}};
 
-		\filldraw[white] (12.9, -4) rectangle  (21, -20);
+		\filldraw[white] (12.9, -4) rectangle  (21, -30);
 	\end{tikzpicture}
 	\newpage
 }
@@ -152,11 +145,20 @@
 	\longLine
 	\section*{成绩评定}
 	\begin{table}[H]
-		\begin{tabular}{|l|l|l|l|}
-			\hline
-			\begin{tabular}[c]{@{}l@{}}实验设计方案\\ （40分）\end{tabular} & \begin{tabular}[c]{@{}l@{}}实验过程与数据记录\\ （30分）\end{tabular} & \begin{tabular}[c]{@{}l@{}}数据处理与结果陈述\\ （30分）\end{tabular} & 总分 \\ \hline
-			\begin{tabular}[c]{@{}l@{}}　\\　\end{tabular}           &                                                           &                                                           &    \\ \hline
-		\end{tabular}
+          \begin{tabular}{|l|l|l|l|l|l|}
+            \hline
+            % line 1
+            \begin{tabular}[c]{@{}l@{}} 预习\\ （20分）\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}操作及记录\\ （40分）\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}数据处理与结果陈述\\ （30分）\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}思考题\\ （10分）\end{tabular}
+            & 报告整体印象
+            & 总分
+            % seperator
+            \\ \hline
+            % line 2
+            \begin{tabular}[c]{@{}l@{}}　\\　\end{tabular} & & & & &
+            \\ \hline
+          \end{tabular}
 	\end{table}
-
 }
