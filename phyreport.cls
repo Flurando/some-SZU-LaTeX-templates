@@ -27,24 +27,24 @@
 \newcolumntype{C}{>{\centering\arraybackslash}m{1.0cm}} % 表格列格式设置
 \captionsetup{font={small}} % 图表标题字样小一号
 % 实验报告信息设置
-\newcommand{\expName}[1]{\newcommand{\phyExpName}{#1}}
+\newcommand{\expName}[1]{\def\phyExpName{#1}}
 \newcommand{\expDate}[3]{
-	\IfValueTF{#1}{\newcommand{\syear}{#1}}{\newcommand{\syear}{2024}}
-	\IfValueTF{#2}{\newcommand{\smonth}{#2}}{\newcommand{\smonth}{}}
-	\IfValueTF{#3}{\newcommand{\sday}{#3}}{\newcommand{\sday}{}}
+	\IfValueTF{#1}{\def\syear{#1}}{\def\syear{\2025}}
+	\IfValueTF{#2}{\def\smonth{#2}}{\def\smonth{}}
+	\IfValueTF{#3}{\def\sday{#3}}{\def\sday{}}
 }
 \newcommand{\subDate}[3]{
-	\IfValueTF{#1}{\newcommand{\fyear}{#1}}{\newcommand{\fyear}{2024}}
-	\IfValueTF{#2}{\newcommand{\fmonth}{#2}}{\newcommand{\fmonth}{}}
-	\IfValueTF{#3}{\newcommand{\fday}{#3}}{\newcommand{\fday}{}}
+	\IfValueTF{#1}{\def\fyear{#1}}{\def\fyear{2024}}
+	\IfValueTF{#2}{\def\fmonth{#2}}{\def\fmonth{}}
+	\IfValueTF{#3}{\def\fday{#3}}{\def\fday{}}
 }
 
-\newcommand{\expType}[1]{\newcommand{\phyExpType}{#1}} % 实验类型
-\newcommand{\expTchr}[1]{\newcommand{\phyExpTchr}{#1}} % 指导老师
-\newcommand{\expAuthor}[1]{\newcommand{\phyAuthor}{#1}} % 我的姓名
-\newcommand{\expStuID}[1]{\newcommand{\phyStuID}{#1}} % 我的学号
-\newcommand{\expNum}[1]{\newcommand{\phyNum}{#1}} % 我的组号
-\newcommand{\expID}[1]{\newcommand{\phyID}{#1}} % 课程编号
+\newcommand{\expType}[1]{\def\phyExpType{#1}} % 实验类型
+\newcommand{\expTchr}[1]{\def\phyExpTchr{#1}} % 指导老师
+\newcommand{\expAuthor}[1]{\def\phyAuthor{#1}} % 我的姓名
+\newcommand{\expStuID}[1]{\def\phyStuID{#1}} % 我的学号
+\newcommand{\expNum}[1]{\def\phyNum{#1}} % 我的组号
+\newcommand{\expID}[1]{\def\phyID{#1}} % 课程编号
 % 有其他需要每个报告修改请自行添加
 
 % 绘制实验报告第一页封面
@@ -54,11 +54,11 @@
 
 	\begin{tikzpicture}[remember picture, overlay, inner sep=0pt, every node/.style={font=\fontsize{14}{14}}]
 		\node[above] at (8.5,-5.8)
-		{\textbf{（在cls这里修改为你的课程名比如：大学物理实验（三））}};
+		{\textbf{（大学物理实验（三））}};
 		\node[above] at (8.5,-7.9)
 		{\textbf{\phyExpName}};
 		\node[above] at (8.5,-10.0)
-		{\textbf{（在cls这里修改为你的学院）}};
+		{\textbf{（你的学院）}};
 		\node[above] at (11,-12.1)
 		{\textbf{\phyExpTchr}};
 		\node[above] at (5.75,-14.2)
