@@ -12,7 +12,7 @@ jobs:
       contents: write
     steps:
       - name: Install TexLive
-        run: sudo apt install texlive-xetex texlive-ulem texlive-fontspec texlive-xecjk texlive-ctex texlive-wrapfig texlive-capt-of texlive-float texlive-anyfontsize texlive-framed texlive-fancybox texlive-caption texlive-booktabs texlive-multirow texlive-comment texlive-titlesec
+        run: sudo apt install texlive-xetex texlive-latex-extra texlive-fonts-extra
 
       - name: Checkout
         uses: actions/checkout@master
