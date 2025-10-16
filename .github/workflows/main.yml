@@ -19,25 +19,19 @@ jobs:
           sparse-checkout: |
             template.tex
             phyreport.cls
-          persist-credentials: false
 
       - name: Checkout
         uses: actions/checkout@master
         with:
           ref: www
-          path: www/
           sparse-checkout: |
             index.html
             物理实验模板.doc
-          persist-credentials: false
       
       - name: Build
-        run: |
-          xelatex ./template.tex
-          mv *.pdf ./www/
+        run: xelatex ./template.tex
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./www
