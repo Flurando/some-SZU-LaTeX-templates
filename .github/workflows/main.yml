@@ -28,8 +28,13 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Build
+        run: |
+          ./build.sh
+          mkdir example && mv *.pdf ./example/
+
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          publish_dir: ./example
