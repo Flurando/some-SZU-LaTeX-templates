@@ -24,14 +24,16 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: www
+          path: www
           sparse-checkout: |
             index.html
             物理实验模板.doc
       
       - name: Build
-        run: xelatex ./template.tex
+        run: xelatex ./template.tex && mv *.pdf www/
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+	  publish_dir: www
