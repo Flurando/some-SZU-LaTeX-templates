@@ -11,26 +11,20 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Guix cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/guix
-          key: guix-cache-${{ github.sha }}
-          restore-keys: |
-            guix-cache-
-      - name: Install Guix
-        uses: PromyLOPh/guix-install-action@v1
-      - name: Ensure no locale warning
-        run: test -z "$(guix --version 2>&1 >/dev/null)"
+      - name: Install TexLive
+        run: sudo apt install texlive-full
 
       - name: Checkout
         uses: actions/checkout@master
         with:
+          sparse-checkout: |
+            template.tex
+            phyreport.cls
           persist-credentials: false
 
       - name: Build
         run: |
-          ./build.sh
+          xelatex ./template.tex
           mkdir example && mv *.pdf ./example/
 
       - name: Deploy to GH Pages
