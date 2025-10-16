@@ -30,7 +30,7 @@ jobs:
             物理实验模板.doc
       
       - name: Build
-        run: xelatex ./template.tex && mv *.pdf www/
+        run: xelatex ./template.tex && mv ./template.pdf www/
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v4
