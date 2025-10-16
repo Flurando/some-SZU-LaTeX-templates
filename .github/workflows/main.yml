@@ -12,7 +12,7 @@ jobs:
       contents: write
     steps:
       - name: Install TexLive
-        run: sudo apt install texlive-full
+        run: sudo apt install texlive-xelatex texlive-latex-extra texlive-fonts-extra texlive-lang-chinese
 
       - name: Checkout
         uses: actions/checkout@master
