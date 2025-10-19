@@ -19,7 +19,9 @@
 	 "texlive-booktabs"
 	 "texlive-multirow"
 	 "texlive-comment"
-	 "texlive-titlesec")))
+	 "texlive-titlesec"
+	 "texlive-pdfpages"
+	 "texlive-pdflscape")))
 
 config
 	 
