@@ -4,7 +4,7 @@
 \RequirePackage{amsmath}\RequirePackage{anyfontsize}
 \RequirePackage{array}\RequirePackage{float}\RequirePackage{framed}\RequirePackage{xparse}
 \RequirePackage{fancybox}\RequirePackage{fancyhdr}\RequirePackage[margin=1in]{geometry}
-\RequirePackage{graphicx}\RequirePackage{tikz}
+\RequirePackage{graphicx}\RequirePackage{tikz}\RequirePackage{pdfpages}
 \RequirePackage{caption}\RequirePackage{booktabs}\RequirePackage{multirow}\RequirePackage{comment}
 % section 的字体设置
 \RequirePackage{titlesec}
@@ -54,11 +54,11 @@
 
 	\begin{tikzpicture}[remember picture, overlay, inner sep=0pt, every node/.style={font=\fontsize{14}{14}}]
 		\node[above] at (8.5,-5.8)
-		{\textbf{（大学物理实验（三））}};
+		{\textbf{大学物理实验（二）}};
 		\node[above] at (8.5,-7.9)
 		{\textbf{\phyExpName}};
 		\node[above] at (8.5,-10.0)
-		{\textbf{（你的学院）}};
+		{\textbf{你的学院}};
 		\node[above] at (8.5,-12.1)
 		{\textbf{\phyExpTchr}};
 		\node[above] at (5.75,-14.2)
@@ -110,13 +110,10 @@
 	\newpage
 }
 % 插入一张图片
-\newcommand\includeFullPageGraphicsBeta[2][]{
+\newcommand\includePDFFirstPage[1]{
 	\newpage
 	\thispagestyle{empty}
-	\begin{tikzpicture}[remember picture, overlay, inner sep=0pt]
-		\node at (current page.center)
-		{\includegraphics[width=\paperwidth, keepaspectratio=true,#1]{#2}};
-	\end{tikzpicture}
+	\includepdf[pages=1, fitpaper=true]{#1}
 	\newpage
 }
 % 分割节 section
