@@ -5,6 +5,7 @@
 (define-public config
   (specifications->manifest
    (list "texlive-xetex"
+	 "texlive-latex"
 	 "texlive-ulem"
 	 "texlive-fontspec"
 	 "texlive-xecjk"
@@ -21,7 +22,9 @@
 	 "texlive-comment"
 	 "texlive-titlesec"
 	 "texlive-pdfpages"
-	 "texlive-pdflscape")))
+	 "texlive-pdflscape"
+	 "texlive-xifthen"
+	 "texlive-ifmtarg")))
 
 config
 	 

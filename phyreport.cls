@@ -4,7 +4,7 @@
 \RequirePackage{amsmath}\RequirePackage{anyfontsize}
 \RequirePackage{array}\RequirePackage{float}\RequirePackage{framed}\RequirePackage{xparse}
 \RequirePackage{fancybox}\RequirePackage{fancyhdr}\RequirePackage[margin=1in]{geometry}
-\RequirePackage{graphicx}\RequirePackage{tikz}\RequirePackage{pdfpages}
+\RequirePackage{graphicx}\RequirePackage{xifthen}\RequirePackage{tikz}\RequirePackage{pdfpages}
 \RequirePackage{caption}\RequirePackage{booktabs}\RequirePackage{multirow}\RequirePackage{comment}
 % section 的字体设置
 \RequirePackage{titlesec}
@@ -28,23 +28,26 @@
 \captionsetup{font={small}} % 图表标题字样小一号
 % 实验报告信息设置
 \newcommand{\expAcademy}[1]{\def\phyExpAcademy{#1}}
+\newcommand{\expLesson}[1]{\def\phyExpLesson{#1}}
 \newcommand{\expName}[1]{\def\phyExpName{#1}}
+
+\newcommand{\genDate}[3]{
+  \ifthenelse{\isempty{#1}}{\rule[-5pt]{1.8cm}{1pt}}{\textbf{#1}}\textbf{年}
+  \ifthenelse{\isempty{#2}}{\rule[-5pt]{0.9cm}{1pt}}{\textbf{#2}}\textbf{月}
+  \ifthenelse{\isempty{#3}}{\rule[-5pt]{0.9cm}{1pt}}{\textbf{#3}}\textbf{日}
+}
 \newcommand{\expDate}[3]{
-	\IfValueTF{#1}{\def\syear{#1}}{\def\syear{\2025}}
-	\IfValueTF{#2}{\def\smonth{#2}}{\def\smonth{}}
-	\IfValueTF{#3}{\def\sday{#3}}{\def\sday{}}
+  \def\expdate{\genDate{#1}{#2}{#3}}
 }
 \newcommand{\subDate}[3]{
-	\IfValueTF{#1}{\def\fyear{#1}}{\def\fyear{2024}}
-	\IfValueTF{#2}{\def\fmonth{#2}}{\def\fmonth{}}
-	\IfValueTF{#3}{\def\fday{#3}}{\def\fday{}}
+  \def\subdate{\genDate{#1}{#2}{#3}}
 }
 
 \newcommand{\expType}[1]{\def\phyExpType{#1}} % 实验类型
 \newcommand{\expTchr}[1]{\def\phyExpTchr{#1}} % 指导老师
-\newcommand{\expAuthor}[1]{\def\phyAuthor{#1}} % 我的姓名
-\newcommand{\expStuID}[1]{\def\phyStuID{#1}} % 我的学号
-\newcommand{\expNum}[1]{\def\phyNum{#1}} % 我的组号
+\newcommand{\expAuthor}[1]{\def\phyAuthor{#1}} % 姓名
+\newcommand{\expStuID}[1]{\def\phyStuID{#1}} % 学号
+\newcommand{\expNum}[1]{\def\phyNum{#1}} % 组号
 \newcommand{\expID}[1]{\def\phyID{#1}} % 课程编号
 % 有其他需要每个报告修改请自行添加
 
@@ -55,7 +58,7 @@
 
 	\begin{tikzpicture}[remember picture, overlay, inner sep=0pt, every node/.style={font=\fontsize{14}{14}}]
 		\node[above] at (8.5,-5.8)
-		{\textbf{大学物理实验（二）}};
+		{\textbf{\phyExpLesson}};
 		\node[above] at (8.5,-7.9)
 		{\textbf{\phyExpName}};
 		\node[above] at (8.5,-10.0)
@@ -86,9 +89,9 @@
 		\node[right] at (1.8,-16.1)
 		{\textbf{学号：}\rule[-5pt]{4.4cm}{1pt}\textbf{实验地点：}\rule[-5pt]{3.7cm}{1pt}};
 		\node[right] at (1.8,-18.2)
-		{\textbf{实验时间：\rule[-5pt]{1.8cm}{1pt}年\rule[-5pt]{0.9cm}{1pt}月\rule[-5pt]{0.9cm}{1pt}日}};
+		{\textbf{实验时间：}\expdate};
 		\node[right] at (1.8,-20.3)
-		{\textbf{提交时间：\rule[-5pt]{1.8cm}{1pt}年\rule[-5pt]{0.9cm}{1pt}月\rule[-5pt]{0.9cm}{1pt}日}};
+		{\textbf{提交时间：}\subdate};
 
 		\node[right, font=\fontsize{10.95}{10.95}\selectfont] at (0.48,0.5)
 		{课程编号\underline{　　\phyID　　}};
@@ -108,14 +111,12 @@
 
 		\filldraw[white] (12.9, -4) rectangle  (21, -30);
 	\end{tikzpicture}
-	\newpage
 }
 % 插入一张图片
 \newcommand\includePDFFirstPage[1]{
 	\newpage
 	\thispagestyle{empty}
-	\includepdf[pages=1, fitpaper=true]{#1}
-	\newpage
+	\includepdf[pages=1, fitpaper=false]{#1}
 }
 % 分割节 section
 \NewDocumentCommand\longLine{}{
@@ -142,7 +143,7 @@
 	\quad\\[2cm]
 	\longLine
 	\section*{成绩评定}
-	\begin{table}[H]
+	\begin{table}[h]
           \begin{tabular}{|l|l|l|l|l|l|}
             \hline
             % line 1

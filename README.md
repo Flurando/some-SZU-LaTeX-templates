@@ -110,9 +110,12 @@ Tips: 你不用在意将线段细致长度，设置得过长不会有大问题�
 
 #### 修改个人信息
 
-进入 `phyreport.cls` 文件，修改 `\NewDocumentCommand\phyExpCover{}` 内容，填上你的课程编号、学院、老师、名字、学号、组号等不会变的信息。
+进入 `template.tex` 文件，修改 `\expXXXX{XXXX}` 内容，填上你的课程编号、学院、老师、名字、学号、组号、日期等信息。
 
 ### 其它
-- 插入一页预习报告：
-  - 文档类定义了`\includeFullPageGraphicsBeta`函数，可以调用它来插入（注意：插入的图片可能需要第二次编译后才能显示）
-- 最大优势: ~~方便抄别人的报告+Copolit自动补全~~
+#### 插入一页预习报告
+文档类定义了`\includePDFFirstPage`函数，可以调用它来插入
+#### 如何打表格
+使用`\begin{table}[h]\end{table}`命令，里面套`tabular`
+#### 日期表现
+留空的日期会打横线，填写任意内容（包括空格之类）会加上`textbf{...}`加粗打印
