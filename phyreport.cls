@@ -27,6 +27,7 @@
 \newcolumntype{C}{>{\centering\arraybackslash}m{1.0cm}} % 表格列格式设置
 \captionsetup{font={small}} % 图表标题字样小一号
 % 实验报告信息设置
+\newcommand{\expAcademy}[1]{\def\phyExpAcademy{#1}}
 \newcommand{\expName}[1]{\def\phyExpName{#1}}
 \newcommand{\expDate}[3]{
 	\IfValueTF{#1}{\def\syear{#1}}{\def\syear{\2025}}
@@ -58,7 +59,7 @@
 		\node[above] at (8.5,-7.9)
 		{\textbf{\phyExpName}};
 		\node[above] at (8.5,-10.0)
-		{\textbf{你的学院}};
+		{\textbf{\phyExpAcademy}};
 		\node[above] at (8.5,-12.1)
 		{\textbf{\phyExpTchr}};
 		\node[above] at (5.75,-14.2)
